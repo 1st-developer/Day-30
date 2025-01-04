@@ -126,8 +126,10 @@ export const updateUser = async(req:Request, res:Response) => {
         user: updatedUser
     })
     } catch (error) {
+        console.log(error)
         res.status(500).json({
-            error: errorMessage
+            isSuccess: false,
+            Message: errorMessage
         });
     }
 };
@@ -160,8 +162,10 @@ export const deleteUser = async (req: Request, res: Response) => {
             message: "User deleted successfully"
         })
     } catch (error) {
+        console.log(error)
         res.status(500).json({
-            error: errorMessage
+            isSuccess: false,
+            Message: errorMessage
         });
     }
 };
