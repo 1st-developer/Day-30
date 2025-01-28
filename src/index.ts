@@ -1,7 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import userRoute from './routes/userRoute'
-import { execArgv } from 'process';
 import postRoute from './routes/postRoute'
 import commentRoute from './routes/commentRoute'
 import reactionRoute from './routes/reactionRoute'

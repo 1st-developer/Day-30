@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
 import { errorMessage } from "../constants";
 
@@ -98,7 +98,7 @@ export const updateComment = async (req: Request, res: Response) => {
             return;
         }
 
-        const comment = await prisma.comment.findUnique({ where: { id: Number(id) } });
+        const comment = await prisma.comment.findUnique({ where: { id: +id } });
 
         if (!comment) {
             res.status(404).json({
@@ -109,7 +109,7 @@ export const updateComment = async (req: Request, res: Response) => {
         }
 
         const updatedComment = await prisma.comment.update({
-            where: { id: Number(id) },
+            where: { id: +id },
             data: { content }
         });
 
@@ -140,7 +140,7 @@ export const deleteComment = async (req: Request, res: Response) => {
             return;
         }
 
-        const comment = await prisma.comment.findUnique({ where: { id: Number(id) } });
+        const comment = await prisma.comment.findUnique({ where: { id: +id } });
 
         if (!comment) {
             res.status(404).json({
@@ -150,7 +150,7 @@ export const deleteComment = async (req: Request, res: Response) => {
             return;
         }
 
-        await prisma.comment.delete({ where: { id: Number(id) } });
+        await prisma.comment.delete({ where: { id: +id } });
 
         res.status(200).json({
             isSuccess: true,

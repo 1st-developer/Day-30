@@ -1,7 +1,6 @@
-import express, {Request, Response} from 'express'
+import {Request, Response} from 'express'
 import { errorMessage } from '../constants'
 import { PrismaClient } from '@prisma/client';
-import { request } from 'http';
 const prisma = new PrismaClient();
 
 interface IcreateUserPayload {
