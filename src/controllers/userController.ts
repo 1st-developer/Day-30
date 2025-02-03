@@ -25,12 +25,12 @@ export const createUser = async (req: Request, res: Response) =>{
                 phone_number: phone_number,
                 password: password
             }
-        })
+        });
         res.status(201).json({
             isSuccess : true,
             message: "User created successfully",
             user: createdUser
-        })
+        });
     
     } catch (error) {
         res.status(500).json({
@@ -123,7 +123,7 @@ export const updateUser = async(req:Request, res:Response) => {
     res.status(200).json({
         isSuccess: true,
         user: updatedUser
-    })
+    });
     } catch (error) {
         console.log(error)
         res.status(500).json({
